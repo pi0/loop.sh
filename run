@@ -2,13 +2,14 @@
 # Hellboy
 set -e
 
-IP=$1
-SESSION=$2
+LIST_FILE=$1
+IP=$2
+SESSION=$3
 
 while read l ;do
     echo $l
     echo ./loop $IP $SESSION $l | bash &
-done < list
+done < $LIST_FILE
 
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 sleep infinity

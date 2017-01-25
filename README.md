@@ -10,4 +10,4 @@ Usage:
 <course id> <course group> <ta id> <ta group> <description>
 ```
 - run script:
-`./run <server ip> <session id>`
+`./run <path to list file> <server ip> <session id>`
