@@ -1,0 +1,24 @@
+#!/bin/bash
+
+ENDPOINT=https://192.168.1.53
+URL="${ENDPOINT}/aportal/regadm/student.portal/student.portal.jsp?action=apply_reg&st_info=add"
+
+COURSE=$1
+GROUP=$2
+TA=$3
+TA_GROUP=$4
+SESSION=$5
+
+echo "Usage: $0 course group ta ta_group session"
+
+ID="${COURSE}_${GROUP}_${TA}_${TA_GROUP}"
+echo "Starting loop for $ID"
+
+while [ true ] ; do
+curl -s --insecure \
+     --cookie "JSESSIONID=${SESSION}" \
+     -X POST \
+     --data "st_reg_course=${ID}" \
+     $URL | grep frmtrc | cat
+sleep 1
+done
