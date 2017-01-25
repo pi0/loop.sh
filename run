@@ -1,0 +1,14 @@
+#!/bin/bash
+# Hellboy
+set -e
+
+IP=$1
+SESSION=$2
+
+while read l ;do
+    echo $l
+    echo ./loop $IP $SESSION $l | bash &
+done < list
+
+trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+sleep infinity

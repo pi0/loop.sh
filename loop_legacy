@@ -1,4 +1,5 @@
 #!/bin/bash
+# Hellboy
 
 ENDPOINT=https://192.168.1.50
 URL="${ENDPOINT}/aportal/regadm/student.portal/student.portal.jsp?action=apply_reg&st_info=drop"
